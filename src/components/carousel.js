@@ -1,6 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import Swipe from "react-easy-swipe";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
 export default function Carousel(props) {
   const slides = useRef(props.slides);
