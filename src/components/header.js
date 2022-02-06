@@ -26,13 +26,13 @@ const menus = [
 
 export default function Header() {
   return (
-    <Popover className="relative bg-white">
+    <Popover className="relative bg-white sticky top-0 z-50">
       <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-100 ">
         <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/">
-              <span className="sr-only">Metamarc.io</span>
-              <img className="h-8 w-auto sm:h-10" src="/img/logo.png" alt="Metamarc.io" />
+              <span className="sr-only">Metamarc</span>
+              <img className="h-8 w-8" src="/img/logo.png" alt="Metamarc.io" />
             </a>
             <div className="ml-16">
               <div className="flex">
@@ -66,7 +66,7 @@ export default function Header() {
           </div>
 
           <div className="hidden md:flex items-center justify-end md:flex-none lg:w-0">
-            <a href="#" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-12 py-1 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
+            <a href="/login" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-12 py-1 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
               Login
             </a>
           </div>
@@ -101,12 +101,12 @@ export default function Header() {
             </div>
             <div className="py-6 px-5 space-y-6">
               <div>
-                <a href="#" className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
+                <a href="/login" className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
                   Login
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Don't have an account?{" "}
-                  <a href="#" className="text-primary-600 hover:text-primary-500">
+                  <a href="/signup" className="text-primary-600 hover:text-primary-500">
                     Sign up
                   </a>
                 </p>
