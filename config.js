@@ -2,15 +2,20 @@ let API_ROOT_URL = "";
 let isProduction = false;
 let isDev = false;
 
-if ((window.location.href.indexOf("http://127.0.0.1") > -1) | (window.location.href.indexOf("http://localhost") > -1)) {
-  API_ROOT_URL = "https://sb-api.metamarc.com";
-  isDev = true;
-} else if (window.location.href.indexOf("https://sb.metamarc.com/") > -1) {
-  API_ROOT_URL = "https://sb-api.metamarc.com";
-  isDev = true;
-} else {
-  isProduction = true;
-  API_ROOT_URL = "https://api.metamarc.com";
+const isBrowser = () => typeof window !== "undefined";
+
+if (isBrowser()) {
+  if ((window.location.href.indexOf("http://127.0.0.1") > -1) | (window.location.href.indexOf("http://localhost") > -1)) {
+    //API_ROOT_URL = "https://sb-api.metamarc.com";
+    API_ROOT_URL = "http://localhost:5000";
+    isDev = true;
+  } else if (window.location.href.indexOf("https://sb.metamarc.com/") > -1) {
+    API_ROOT_URL = "https://sb-api.metamarc.com";
+    isDev = true;
+  } else {
+    isProduction = true;
+    API_ROOT_URL = "https://api.metamarc.com";
+  }
 }
 
 export default {

@@ -14,3 +14,8 @@
   --primary-800: #b3461c;
   --primary-900: #973b18;
 }
+
+[disabled] {
+  opacity: 0.3;
+  pointer-events: none;
+}

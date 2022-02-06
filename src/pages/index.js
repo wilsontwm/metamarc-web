@@ -159,8 +159,6 @@ export default function Home() {
               slidesPerView: 4,
             },
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {featuredItems?.map((item, index) => {
             return (

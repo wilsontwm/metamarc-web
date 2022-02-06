@@ -1,4 +1,5 @@
 import config from "../../config";
+import { toast } from "react-toastify";
 
 const { API_ROOT_URL } = config;
 
@@ -42,11 +43,16 @@ const fetching = (uriInput = "", method = "GET", body = {}) => {
 
   const fetchAPI = fetch(uri, data)
     .then((resp) => {
-      console.log(resp);
       if (!resp.ok) {
         return resp.text().then((text) => {
           // console.log('Fetch pure response : ', text);
           const json = isJSON(text) ? JSON.parse(text) : {};
+          toast.error(json.message);
+
+          return Promise.reject({
+            statusCode: resp.status,
+            message: json.message,
+          });
         });
       }
       return resp.text().then((text) => {
@@ -56,9 +62,7 @@ const fetching = (uriInput = "", method = "GET", body = {}) => {
       });
     })
     .catch((err) => {
-      console.log(err);
-
-      Promise.reject(err);
+      return Promise.reject(err);
     });
   return Promise.race([
     fetchAPI,
