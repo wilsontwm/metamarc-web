@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import dayjs from "dayjs";
 import { Mousewheel } from "swiper";
-import Carousel from "../components/carousel";
+import Carousel from "../components/home/carousel";
 
 import "swiper/css";
-import NFTItem from "../components/nft_item";
+import NFTItem from "../components/home/nft_item";
 
 const carouselItems = [
   {

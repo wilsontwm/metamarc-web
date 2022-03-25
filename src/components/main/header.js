@@ -2,6 +2,9 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { ShoppingCartIcon, UsersIcon, ChevronRightIcon, QuestionMarkCircleIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import MenuDropdown from "./menu_dropdown";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "./../../stores/actions/auth";
 
 const menus = [
   {
@@ -25,6 +28,9 @@ const menus = [
 ];
 
 export default function Header() {
+  const dispatch = useDispatch();
+  const accountId = useSelector((state) => state.auth.accountId);
+
   return (
     <Popover className="relative bg-white sticky top-0 z-50">
       <div className="mx-auto px-4 sm:px-6 border-b-2 border-gray-100 ">
@@ -66,9 +72,13 @@ export default function Header() {
           </div>
 
           <div className="hidden md:flex items-center justify-end md:flex-none lg:w-0">
-            <a href="/login" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-12 py-1 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
-              Login
-            </a>
+            {accountId ? (
+              <MenuDropdown />
+            ) : (
+              <a href="/login" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-12 py-1 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700">
+                Login
+              </a>
+            )}
           </div>
         </div>
       </div>

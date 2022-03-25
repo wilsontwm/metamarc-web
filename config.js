@@ -1,4 +1,5 @@
 let API_ROOT_URL = "";
+let INFURA_KEY = "60ab76e16df54c808e50a79975b4779f";
 let isProduction = false;
 let isDev = false;
 
@@ -22,4 +23,5 @@ export default {
   isProduction,
   isDev,
   API_ROOT_URL: `${API_ROOT_URL}`,
+  INFURA_KEY,
 };
